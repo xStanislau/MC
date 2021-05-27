@@ -1,7 +1,9 @@
 import React from 'react';
 import { number, string } from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 
-// components
+// redux
+import { addToBasket, removeFromBasket } from '../../redux/products';
 
 // styles
 import {
@@ -15,7 +17,26 @@ import {
   StyledProductCard,
 } from './ProductCard.style';
 
-const ProductCard = ({ src, alt, title, description, price }) => {
+const ProductCard = ({ src, alt, title, description, price, productId }) => {
+  const dispatch = useDispatch();
+  const isProductAdded = useSelector((state) =>
+    state.some((product) => product.id === productId),
+  );
+
+  const addProduct = (productPrice, id) => () => {
+    dispatch(addToBasket({ price: productPrice, id }));
+  };
+
+  const removeProduct = (id) => () => {
+    dispatch(removeFromBasket(id));
+  };
+
+  const handleButtonClick = isProductAdded
+    ? removeProduct(productId)
+    : addProduct(price, productId);
+
+  const text = isProductAdded ? 'Remove from basket' : 'Add to basket';
+
   return (
     <StyledProductCard>
       <ProductImage src={src} alt={alt} />
@@ -25,7 +46,7 @@ const ProductCard = ({ src, alt, title, description, price }) => {
       </ProductInfo>
       <PriceBlock>
         <ProductPrice>{price}$</ProductPrice>
-        <StyledProductButton text="Add to basket" />
+        <StyledProductButton text={text} onClick={handleButtonClick} />
       </PriceBlock>
     </StyledProductCard>
   );
@@ -41,6 +62,7 @@ ProductCard.propTypes = {
   title: string.isRequired,
   description: string.isRequired,
   price: number,
+  productId: string.isRequired,
 };
 
 export default ProductCard;
