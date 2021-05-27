@@ -6,7 +6,6 @@ import Amount from '../Amount';
 import { HeaderInner, StyledHeader } from './Header.style';
 
 const Header = () => {
-  console.log('1');
   return (
     <StyledHeader>
       <HeaderInner>
