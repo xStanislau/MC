@@ -4,6 +4,7 @@ import { number, string } from 'prop-types';
 import Button from '../Button';
 
 const ProductCard = ({ src, alt, title, description, price }) => {
+  console.log();
   return (
     <div>
       <img src={src} alt={alt} />
