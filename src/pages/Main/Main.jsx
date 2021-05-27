@@ -13,7 +13,6 @@ const Main = () => (
           <ProductCard
             title={title}
             description={description}
-            src={src}
             price={price}
             key={index}
           />
