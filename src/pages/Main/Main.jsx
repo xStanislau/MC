@@ -14,7 +14,6 @@ const Main = () => (
             title={title}
             description={description}
             src={src}
-            alt={alt}
             price={price}
             key={index}
           />
