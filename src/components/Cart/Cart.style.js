@@ -6,8 +6,13 @@ export const StyledCart = styled.div`
   max-width: 100%;
 `;
 
+const {
+  typography,
+  colors: { accent },
+} = theme;
+
 export const CartTile = styled.span`
-  font-size: ${theme.typography.fontSize1};
+  font-size: ${typography.fontSize1};
 `;
 
 export const CartBadge = styled.div`
@@ -17,9 +22,9 @@ export const CartBadge = styled.div`
   align-items: center;
   width: 18px;
   height: 18px;
-  background-color: #ff9300;
+  background-color: ${accent.hover};
   border-radius: 50%;
-  font-size: ${theme.typography.fontSize0};
+  font-size: ${typography.fontSize0};
   position: absolute;
   right: 0px;
   top: -6px;

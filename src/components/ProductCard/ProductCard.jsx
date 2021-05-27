@@ -1,21 +1,33 @@
 import React from 'react';
 import { number, string } from 'prop-types';
 
-import Button from '../Button';
+// components
+
+// styles
+import {
+  PriceBlock,
+  ProductImage,
+  ProductInfo,
+  ProductPrice,
+  ProductTitle,
+  ProjectDescription,
+  StyledProductButton,
+  StyledProductCard,
+} from './ProductCard.style';
 
 const ProductCard = ({ src, alt, title, description, price }) => {
   return (
-    <div>
-      <img src={src} alt={alt} />
-      <div>
-        <h2>{title}</h2>
-        <div>{description}</div>
-      </div>
-      <div>
-        <span>{price}$</span>
-        <Button text="Add to basket" />
-      </div>
-    </div>
+    <StyledProductCard>
+      <ProductImage src={src} alt={alt} />
+      <ProductInfo>
+        <ProductTitle>{title}</ProductTitle>
+        <ProjectDescription>{description}</ProjectDescription>
+      </ProductInfo>
+      <PriceBlock>
+        <ProductPrice>{price}$</ProductPrice>
+        <StyledProductButton text="Add to basket" />
+      </PriceBlock>
+    </StyledProductCard>
   );
 };
 

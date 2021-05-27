@@ -2,7 +2,9 @@ export const theme = {
   colors: {
     black: '#333333',
     lightGrey: '#fefefe',
-    accent: '#f57800',
+    darkGrey: '#cecece',
+    accent: { base: '#f57800', hover: '#ff9300;' },
+    white: '#ffffff',
   },
   typography: {
     fontSize0: '12px',
