@@ -14,7 +14,7 @@ const Main = () => (
     <Header />
     <MainContent>
       <Container>
-        {products.map(({ title, description, src, alt, price }, index) => {
+        {products.map(({ title, description, src, alt, price }) => {
           const productId = nanoid();
 
           return (
