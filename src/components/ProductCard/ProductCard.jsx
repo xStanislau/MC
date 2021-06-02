@@ -23,17 +23,13 @@ const ProductCard = ({ src, alt, title, description, price, productId }) => {
     state.some((product) => product.id === productId),
   );
 
-  const addProduct = (productPrice, id) => () => {
-    dispatch(addToBasket({ price: productPrice, id }));
+  const handleButtonClick = (productPrice, id) => () => {
+    if (isProductAdded) {
+      dispatch(removeFromBasket(id));
+    } else {
+      dispatch(addToBasket({ price: productPrice, id }));
+    }
   };
-
-  const removeProduct = (id) => () => {
-    dispatch(removeFromBasket(id));
-  };
-
-  const handleButtonClick = isProductAdded
-    ? removeProduct(productId)
-    : addProduct(price, productId);
 
   const text = isProductAdded ? 'Remove from basket' : 'Add to basket';
 
@@ -46,7 +42,10 @@ const ProductCard = ({ src, alt, title, description, price, productId }) => {
       </ProductInfo>
       <PriceBlock>
         <ProductPrice>{price}$</ProductPrice>
-        <StyledProductButton text={text} onClick={handleButtonClick} />
+        <StyledProductButton
+          text={text}
+          onClick={handleButtonClick(price, productId)}
+        />
       </PriceBlock>
     </StyledProductCard>
   );

@@ -1,5 +1,8 @@
+import { nanoid } from '@reduxjs/toolkit';
+
 export default [
   {
+    id: nanoid(),
     src: 'src/images/air.jpg',
     alt: 'MacBook Air',
     title: 'MacBook Air',
@@ -8,6 +11,7 @@ export default [
     price: 1299,
   },
   {
+    id: nanoid(),
     src: 'src/images/air.jpg',
     alt: 'MacBook Air',
     title: 'MacBook Air',
@@ -16,6 +20,7 @@ export default [
     price: 1299,
   },
   {
+    id: nanoid(),
     src: '/src/images/air.jpg',
     alt: 'MacBook Air',
     title: 'MacBook Air',
@@ -24,6 +29,7 @@ export default [
     price: 1299,
   },
   {
+    id: nanoid(),
     src: '/src/images/air.jpg',
     alt: 'MacBook Air',
     title: 'MacBook Air',

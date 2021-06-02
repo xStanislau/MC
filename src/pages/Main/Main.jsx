@@ -1,5 +1,4 @@
 import React from 'react';
-import { nanoid } from '@reduxjs/toolkit';
 // components
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
@@ -14,18 +13,16 @@ const Main = () => (
     <Header />
     <MainContent>
       <Container>
-        {products.map(({ title, description, src, alt, price }) => {
-          const productId = nanoid();
-
+        {products.map(({ title, description, src, alt, price, id }) => {
           return (
             <ProductCard
-              productId={productId}
+              productId={id}
               title={title}
               description={description}
               price={price}
               src={src}
               alt={alt}
-              key={productId}
+              key={id}
             />
           );
         })}
