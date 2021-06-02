@@ -12,7 +12,7 @@ const reducer = createReducer([], (builder) => {
     .addCase(removeFromBasket, (state, action) => {
       const { payload } = action;
       const currentIndex = state.findIndex(({ id }) => {
-        return id !== payload;
+        return id === payload;
       });
 
       state.splice(currentIndex, 1);
